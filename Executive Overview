@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OA Theory of Action — Executive Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     GOODWILL BRAND BOOK — Aligned CSS
+     Core (sparingly): Reflex Blue #00539F · Black #212721 · Text Gray #52585A
+     Primary (dominant): Medium Blue #4F87C6 · Light Blue #7CC1E8 · Medium Green #4FBC86 · Lime Green #B2D235
+     Secondary (supplemental): Red #DF4E51 · Purple #A95678 · Orange #E9992F · Yellow #FFD600
+     Font: Lato (Google Fonts) · Increased tracking
+     ═══════════════════════════════════════════════════════════════ */
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Lato, 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #52585A;
+    line-height: 1.6;
+    letter-spacing: .02em;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* DRAFT watermark */
+  body::before {
+    content: "DRAFT";
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    font-size: 18vw;
+    font-weight: 900;
+    color: rgba(0,0,0,0.015);
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: 0.12em;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 32px 28px 48px;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(135deg, #4F87C6 0%, #3A6FA8 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 36px 44px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(79,135,198,.18);
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    background: rgba(79,188,134,.12);
+    border-radius: 50%;
+  }
+  header h1 {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  header .subtitle {
+    font-size: 17px;
+    opacity: 0.85;
+    font-weight: 400;
+    margin-bottom: 14px;
+    letter-spacing: .02em;
+  }
+  header .meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-size: 13px; opacity: 0.72;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 12px; margin-top: 4px;
+    letter-spacing: .02em;
+  }
+  .draft-badge {
+    display: inline-block;
+    background: #4FBC86;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+    margin-left: 12px;
+  }
+
+  /* ─── HOW TO READ ─── */
+  .how-to-read {
+    background: #fff;
+    border: 1px solid rgba(79,135,198,.15);
+    border-left: 5px solid #4FBC86;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #52585A;
+    line-height: 1.65;
+    box-shadow: 0 2px 12px rgba(79,135,198,.06);
+    letter-spacing: .02em;
+  }
+  .how-to-read strong { color: #00539F; }
+
+  /* ─── TIER HEADER ROW ─── */
+  .tier-strip {
+    display: grid;
+    grid-template-columns: 230px repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .tier-strip .label-cell {
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    padding: 0 14px 8px 0;
+    font-size: 11px; font-weight: 700; color: #52585A;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    opacity: .6;
+  }
+  .tier-header {
+    border-radius: 10px 10px 4px 4px;
+    padding: 16px 14px 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(79,135,198,.06);
+  }
+  .tier-header .tier-letter {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; margin-bottom: 2px;
+    text-transform: uppercase; opacity: .8;
+  }
+  .tier-header h3 {
+    font-size: 15px; font-weight: 900; margin-bottom: 4px;
+  }
+  .tier-header .tier-desc {
+    font-size: 11px; line-height: 1.4; opacity: 0.8;
+    letter-spacing: .02em;
+  }
+  .tier-header .tier-star { font-size: 15px; }
+
+  /* Tier colors — matching main presentation staircase */
+  .t-a { background: #7CC1E8; color: #000; }
+  .t-b { background: #4F87C6; color: #000; }
+  .t-c { background: #4FBC86; color: #000; }
+  .t-d { background: #D4AF37; color: #000; border: 2px solid #B8972E; }
+  .t-e { background: #4D4F51; color: #fff; border: 2px solid #3A3C3E; }
+
+  /* ─── COMPONENT ROWS ─── */
+  .component-row {
+    display: grid;
+    grid-template-columns: 230px repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .comp-label {
+    background: linear-gradient(135deg, #4F87C6, #3A6FA8);
+    color: #fff;
+    border-radius: 12px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(79,135,198,.12);
+  }
+  .comp-label .emoji { font-size: 22px; margin-bottom: 4px; }
+  .comp-label .comp-name {
+    font-size: 15px; font-weight: 900; line-height: 1.3;
+    letter-spacing: .01em;
+  }
+  .comp-label .comp-sub {
+    font-size: 11.5px; opacity: 0.72; margin-top: 3px;
+    font-style: italic; line-height: 1.3;
+    letter-spacing: .02em;
+  }
+
+  /* ─── CELLS ─── */
+  .cell {
+    background: #fff;
+    border-radius: 6px;
+    padding: 14px 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #52585A;
+    box-shadow: 0 1px 4px rgba(79,135,198,.05);
+    border-left: 3px solid transparent;
+    transition: box-shadow 0.2s, background .15s;
+    letter-spacing: .02em;
+  }
+  .cell:hover { box-shadow: 0 3px 14px rgba(79,135,198,.12); background: rgba(79,188,134,.02); }
+
+  /* Cell left-border colors — matching tier staircase */
+  .cell.c-a { border-left-color: #7CC1E8; }
+  .cell.c-b { border-left-color: #4F87C6; }
+  .cell.c-c { border-left-color: #4FBC86; }
+  .cell.c-d { border-left-color: #D4AF37; }
+  .cell.c-e { border-left-color: #4D4F51; }
+
+  /* ─── NOTE BAR ─── */
+  .note-bar {
+    background: rgba(233,153,47,.08);
+    border: 1px solid #E9992F;
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin: 24px 0 28px;
+    font-size: 13.5px;
+    color: #52585A;
+    display: flex; align-items: flex-start; gap: 12px;
+    line-height: 1.65;
+    letter-spacing: .02em;
+  }
+  .note-bar .icon { font-size: 22px; flex-shrink: 0; }
+  .note-bar strong { color: #00539F; }
+  .note-bar em { color: #4FBC86; font-style: italic; font-weight: 600; }
+
+  /* ─── TARGETS ─── */
+  .targets {
+    display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .target-card {
+    flex: 1 1 280px;
+    border-radius: 12px;
+    padding: 22px 26px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 12px rgba(79,135,198,.08);
+  }
+  .target-card.gold {
+    background: #fff;
+    border: 2px solid #D4AF37;
+  }
+  .target-card.plat {
+    background: linear-gradient(135deg, #4D4F51, #3A3C3E);
+    border: 2px solid #3A3C3E;
+    color: #fff;
+  }
+  .target-card .num { font-size: 38px; font-weight: 900; line-height: 1; }
+  .target-card.gold .num { color: #D4AF37; }
+  .target-card.plat .num { color: #fff; }
+  .target-card .desc { font-size: 14px; line-height: 1.45; color: #52585A; letter-spacing: .02em; }
+  .target-card.plat .desc { color: rgba(255,255,255,.85); }
+  .target-card .desc strong { font-weight: 700; }
+
+  /* ─── ROLE CROSSWALK SUMMARY ─── */
+  .crosswalk-section { margin-bottom: 32px; }
+  .crosswalk-section h2 {
+    font-size: 20px; font-weight: 900; color: #00539F;
+    margin-bottom: 6px; letter-spacing: -.01em;
+  }
+  .crosswalk-section .cw-sub {
+    font-size: 13.5px; color: #52585A; margin-bottom: 16px;
+    line-height: 1.6; letter-spacing: .02em;
+  }
+  .role-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .role-chip {
+    background: #fff;
+    border: 1px solid rgba(79,135,198,.15);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
+    box-shadow: 0 1px 6px rgba(79,135,198,.06);
+    display: flex; flex-direction: column; gap: 3px;
+    min-width: 150px; flex: 1 1 150px; max-width: 210px;
+    transition: box-shadow .2s;
+    letter-spacing: .02em;
+  }
+  .role-chip:hover { box-shadow: 0 4px 16px rgba(79,135,198,.12); }
+  .role-chip .role-name { font-weight: 700; color: #00539F; font-size: 13.5px; }
+  .role-chip .role-load { font-size: 12px; color: #52585A; line-height: 1.45; }
+  .role-chip .role-primary { color: #4FBC86; font-weight: 700; font-size: 11.5px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #52585A;
+    opacity: .5;
+    border-top: 1px solid rgba(127,193,232,.2);
+    padding-top: 20px;
+    margin-top: 12px;
+    letter-spacing: .03em;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1100px) {
+    .tier-strip, .component-row {
+      grid-template-columns: 190px repeat(5, 1fr);
+    }
+    .cell { font-size: 12px; padding: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ═══════ HEADER ═══════ -->
+<header>
+  <h1>Goodwill Opportunity Accelerator® (OA) — Executive Overview <span class="draft-badge">DRAFT</span></h1>
+  <div class="subtitle">CEOs · Funders · Board<br>How Goodwill Organizations Progress Through OA Adoption — One Clear Page</div>
+  <div class="meta">
+    <span>May 2026</span>
+    <span>Goodwill Industries International</span>
+  </div>
+</header>
+
+<!-- ═══════ HOW TO READ ═══════ -->
+<div class="how-to-read">
+  <strong>How to read this page:</strong> This overview shows how Goodwill organizations move through five stages of OA adoption. <strong>Read left to right</strong> to see what changes at each stage — from early awareness all the way to full, high-quality implementation. <strong>Read top to bottom</strong> to see the four areas every organization needs to build. The descriptions on the left tell you what each area is about — no jargon, no acronyms.
+</div>
+
+<!-- ═══════ TIER HEADERS ═══════ -->
+<div class="tier-strip">
+  <div class="label-cell">Adoption Stages →</div>
+
+  <div class="tier-header t-a">
+    <div class="tier-letter">Stage A</div>
+    <h3>Prospective</h3>
+    <div class="tier-desc">Not yet involved with OA</div>
+  </div>
+
+  <div class="tier-header t-b">
+    <div class="tier-letter">Stage B</div>
+    <h3>Exploring</h3>
+    <div class="tier-desc">Just getting started</div>
+  </div>
+
+  <div class="tier-header t-c">
+    <div class="tier-letter">Stage C</div>
+    <h3>Progressing</h3>
+    <div class="tier-desc">Making progress — closer to Gold than they think</div>
+  </div>
+
+  <div class="tier-header t-d">
+    <div class="tier-letter">Stage D</div>
+    <h3><span class="tier-star">★</span> Ready (Gold)</h3>
+    <div class="tier-desc">Meeting core OA standards</div>
+  </div>
+
+  <div class="tier-header t-e">
+    <div class="tier-letter">Stage E</div>
+    <h3><span class="tier-star">★★</span> Exemplary (Platinum)</h3>
+    <div class="tier-desc">Leading the way — the network's strongest</div>
+  </div>
+</div>
+
+<!-- ═══════ ROW 1 — BUILD YOUR FOUNDATION ═══════ -->
+<div class="component-row">
+  <div class="comp-label">
+    <div class="emoji">🏗️</div>
+    <div class="comp-name">Build Your Foundation</div>
+    <div class="comp-sub">Organizational Preparation</div>
+  </div>
+
+  <div class="cell c-a">
+    The organization hasn't started aligning its team with OA. There's no formal structure for who does what and no connections to employer partners.
+  </div>
+
+  <div class="cell c-b">
+    The organization is interested and starting to learn. They're thinking about team structure and exploring OA training like the Fellows leadership program.
+  </div>
+
+  <div class="cell c-c">
+    The team is taking shape. Core job functions are covered, at least one staff member is going through OA leadership training and the organization has started building relationships with local employers.
+  </div>
+
+  <div class="cell c-d">
+    The team is organized by function — each person has a clear role. At least half of participant-facing staff are certified. Formal employer partnerships are in place and key data is tracked monthly.
+  </div>
+
+  <div class="cell c-e">
+    Every role is clearly defined. All participant-facing staff are certified. Multiple staff have completed OA leadership training. Technology coordinates referrals, training is co-created with employers and outcomes are tracked for a full year after placement.
+  </div>
+</div>
+
+<!-- ═══════ ROW 2 — MEET PEOPLE WHERE THEY ARE ═══════ -->
+<div class="component-row">
+  <div class="comp-label">
+    <div class="emoji">🔍</div>
+    <div class="comp-name">Meet People Where They Are</div>
+    <div class="comp-sub">Phase 1: Assess and Plan</div>
+  </div>
+
+  <div class="cell c-a">
+    There's no consistent process for learning about the people who walk through the door. Assessments aren't used and there's no standard way to understand someone's needs.
+  </div>
+
+  <div class="cell c-b">
+    A basic intake process exists, but it's not standardized. Some assessments are used, but not for everyone. Orientation sessions may be offered, but attendance isn't tracked.
+  </div>
+
+  <div class="cell c-c">
+    The organization collects key information about each person's background and needs. Everyone completes at least one assessment. An orientation introduces them to available services.
+  </div>
+
+  <div class="cell c-d">
+    Structured intake captures work history, education and life circumstances. Assessments cover career interests, basic skills and digital abilities. Everyone gets an orientation and works with staff to create a personalized career and financial plan with measurable goals.
+  </div>
+
+  <div class="cell c-e">
+    Comprehensive intake helps staff design the right path for each person. Everyone completes a full assessment set, including a nationally recognized digital skills evaluation. Plans include career goals, financial stability goals and a system for tracking progress over time.
+  </div>
+</div>
+
+<!-- ═══════ ROW 3 — DELIVER THE RIGHT SERVICES ═══════ -->
+<div class="component-row">
+  <div class="comp-label">
+    <div class="emoji">📚</div>
+    <div class="comp-name">Deliver the Right Services</div>
+    <div class="comp-sub">Phase 2: Equip and Connect</div>
+  </div>
+
+  <div class="cell c-a">
+    There are few or no structured services. Support is informal and varies from person to person, with no consistent approach.
+  </div>
+
+  <div class="cell c-b">
+    Some support services are available — like help with resumes or referrals to community resources — but they're limited and not consistently offered to everyone.
+  </div>
+
+  <div class="cell c-c">
+    Real support is tailored to each person — housing, transportation or childcare barriers are addressed. Skills training and some job-specific programs are offered.
+  </div>
+
+  <div class="cell c-d">
+    Support is coordinated around what each person needs. Financial education, employer-aligned training and career exploration are offered. Life barriers — housing, childcare, transportation — are actively addressed.
+  </div>
+
+  <div class="cell c-e">
+    The full support system is in place and technology-connected. Training follows proven curricula, co-designed with employers to match living-wage jobs. Every barrier — from digital skills gaps to housing instability — is addressed through a coordinated partner network.
+  </div>
+</div>
+
+<!-- ═══════ ROW 4 — LAUNCH CAREERS, STAY CONNECTED ═══════ -->
+<div class="component-row">
+  <div class="comp-label">
+    <div class="emoji">🚀</div>
+    <div class="comp-name">Launch Careers, Stay Connected</div>
+    <div class="comp-sub">Phase 3: Launch and Evaluate</div>
+  </div>
+
+  <div class="cell c-a">
+    There's no structured help with finding a job and no follow-up after someone is placed. The organization doesn't track what happens after people leave.
+  </div>
+
+  <div class="cell c-b">
+    Some job placement help is available, but follow-up after someone starts working is inconsistent. Basic outcome information may be gathered, but not systematically.
+  </div>
+
+  <div class="cell c-c">
+    The organization helps people find jobs through a documented process. They're beginning to check in with people after placement to see how things are going and catch problems early.
+  </div>
+
+  <div class="cell c-d">
+    The organization connects people to employers and helps them land jobs. Staff check in at 1, 2, 3 and 6 months after placement — stepping in with support when needed. Key outcomes are tracked monthly.
+  </div>
+
+  <div class="cell c-e">
+    People are placed in living-wage jobs. Staff follow up for a full year — at 1, 2, 3, 6 and 12 months. A formal alumni program keeps people connected to Goodwill long after completing the program. Detailed outcomes drive continuous improvement.
+  </div>
+</div>
+
+<!-- ═══════ NOTE ═══════ -->
+<div class="note-bar">
+  <div class="icon">💡</div>
+  <div>
+    <strong>Important:</strong> Most organizations will be at different stages for different rows — and that's completely normal. For example, an organization might be strong in job placement but still developing its assessment process. Each of the 25 service areas that make up OA moves at its own pace. This overview shows the big picture. The <em>Full Detail View</em> breaks each of these four areas down into all 25 specific service areas with step-by-step progression descriptions.
+  </div>
+</div>
+
+<!-- ═══════ 2027 TARGETS ═══════ -->
+<div class="targets">
+  <div class="target-card gold">
+    <div class="num">60+</div>
+    <div class="desc"><strong>OA Essentials (Gold ★)</strong><br>Organizations meeting core OA standards by 2027</div>
+  </div>
+  <div class="target-card plat">
+    <div class="num">35+</div>
+    <div class="desc"><strong>OA High Fidelity (Platinum ★★)</strong><br>Organizations leading with full, evidence-based implementation by 2027</div>
+  </div>
+</div>
+
+<!-- ═══════ ROLE CROSSWALK SUMMARY ═══════ -->
+<div class="crosswalk-section">
+  <h2>Who Owns What — The 8 Roles That Make OA Work</h2>
+  <div class="cw-sub">Every one of the 25 service areas has a named owner — someone who is directly responsible for making it happen. Here are the eight roles and what they do. Smaller organizations may have one person covering multiple roles; what matters is that every area has someone accountable.</div>
+
+  <div class="role-grid">
+    <div class="role-chip">
+      <div class="role-name">Mission Leader</div>
+      <div class="role-primary">★ 2 primary areas</div>
+      <div class="role-load">Makes the big decisions — staffing structure and OA strategy</div>
+    </div>
+    <div class="role-chip">
+      <div class="role-name">Program Manager</div>
+      <div class="role-primary">★ 2 primary areas</div>
+      <div class="role-load">Keeps everything running — oversees operations across all 25 service areas</div>
+    </div>
+    <div class="role-chip">
+      <div class="role-name">Career Navigator</div>
+      <div class="role-primary">★ 9 primary areas</div>
+      <div class="role-load">Works directly with people every day — the most hands-on role and the heaviest workload</div>
+    </div>
+    <div class="role-chip">
+      <div class="role-name">Business Engagement</div>
+      <div class="role-primary">★ 3 primary areas</div>
+      <div class="role-load">Builds relationships with employers to create job opportunities and training partnerships</div>
+    </div>
+    <div class="role-chip">
+      <div class="role-name">Community Engagement</div>
+      <div class="role-primary">★ 1 primary area</div>
+      <div class="role-load">Connects with community organizations for outreach, referrals and support services</div>
+    </div>
+    <div class="role-chip">
+      <div class="role-name">Program Coordinator</div>
+      <div class="role-primary">★ 3 primary areas</div>
+      <div class="role-load">Manages orientation sessions, career exploration activities and alumni programs</div>
+    </div>
+    <div class="role-chip">
+      <div class="role-name">Trainer</div>
+      <div class="role-primary">★ 4 primary areas</div>
+      <div class="role-load">Teaches job skills, digital skills, financial literacy and workplace readiness</div>
+    </div>
+    <div class="role-chip">
+      <div class="role-name">Data Specialist</div>
+      <div class="role-primary">★ 2 primary areas</div>
+      <div class="role-load">Tracks what's working — manages outcome data, reporting and referral technology</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  DRAFT — For Internal Discussion · May 2026 · Goodwill Industries International
+</footer>
+
+</div>
+
+</body>
+</html>
