@@ -8,10 +8,15 @@ html{scroll-behavior:smooth}
 body{font-family:Lato,'Segoe UI',Arial,sans-serif;color:#52585A;line-height:1.65;background:#fff;letter-spacing:.02em}
 body::before{content:"DRAFT";position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-35deg);font-size:18vw;font-weight:900;color:rgba(0,0,0,.015);pointer-events:none;z-index:0;letter-spacing:.12em}
 
-nav{position:sticky;top:0;z-index:200;background:linear-gradient(135deg,#4F87C6,#3A6FA8);backdrop-filter:blur(10px);display:flex;align-items:center;padding:0 20px;overflow-x:auto;white-space:nowrap;border-bottom:3px solid #B2D235}
+nav{position:sticky;top:0;z-index:200;background:linear-gradient(135deg,#4F87C6,#3A6FA8);backdrop-filter:blur(10px);display:flex;align-items:center;padding:0 20px;overflow-x:auto;white-space:nowrap;border-bottom:3px solid #B2D235;flex-wrap:wrap}
 nav .br{color:#fff;font-weight:900;font-size:13px;padding:12px 12px 12px 0;flex-shrink:0;border-right:1px solid rgba(255,255,255,.2);margin-right:8px;letter-spacing:.04em}
 nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:11px;font-weight:700;padding:12px 8px;flex-shrink:0;transition:.2s;letter-spacing:.04em}
 nav a:hover{color:#fff}
+
+/* Hamburger button - hidden on desktop */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px;margin-left:auto;flex-shrink:0}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:.3s}
+.nav-links{display:contents}
 
 section{position:relative;z-index:1;overflow:hidden}
 .inner{max-width:1100px;margin:0 auto;padding:0 28px}
@@ -41,7 +46,6 @@ p{font-size:15px;line-height:1.75;color:#52585A;margin-bottom:14px}
 
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-@media(max-width:800px){.g2,.g3,.val-grid,.ask-row,.sup-visual,.del{grid-template-columns:1fr;flex-direction:column}.pipe{flex-direction:column}.pipe-arr{transform:rotate(90deg)}.htl{flex-wrap:wrap;gap:12px}.htl::before{display:none}.tier-stairs{flex-direction:column}}
 
 .icard{background:#fff;border-radius:12px;padding:30px 26px;box-shadow:0 2px 16px rgba(79,135,198,.08);transition:transform .2s,box-shadow .2s}
 .icard:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(79,135,198,.14)}
@@ -146,13 +150,138 @@ p{font-size:15px;line-height:1.75;color:#52585A;margin-bottom:14px}
 .ask-card p{font-size:13px;opacity:.8;line-height:1.55}
 
 footer{text-align:center;padding:28px;font-size:11px;color:#52585A;opacity:.5;border-top:1px solid rgba(127,193,232,.2);letter-spacing:.03em}
+
+/* ==========================================
+   MOBILE RESPONSIVE STYLES
+   ========================================== */
+
+/* Tablet and below: ≤ 800px */
+@media(max-width:800px){
+  .g2,.g3,.val-grid,.ask-row,.sup-visual,.del{grid-template-columns:1fr;flex-direction:column}
+  .pipe{flex-direction:column}
+  .pipe-arr{transform:rotate(90deg);padding:4px 0;justify-content:center}
+  .htl{flex-wrap:wrap;gap:12px;justify-content:center}
+  .htl::before{display:none}
+  .tier-stairs{flex-direction:column;align-items:stretch;min-height:auto}
+
+  /* Hamburger nav for mobile */
+  .nav-toggle{display:flex;flex-direction:column;justify-content:center}
+  .nav-links{display:none;width:100%;order:3;flex-basis:100%;padding:8px 0 12px}
+  .nav-links.open{display:flex;flex-wrap:wrap;gap:0}
+  .nav-links a{flex-shrink:1;white-space:normal;padding:10px 14px;font-size:12px;width:50%}
+  nav{flex-wrap:wrap}
+  nav .br{border-right:none;margin-right:0;flex:1}
+
+  /* Hero adjustments */
+  .hero{min-height:60vh;padding:60px 20px}
+  .hero h1{font-size:clamp(26px,7vw,40px)}
+  .hero .hsub{font-size:15px}
+
+  /* Padding reductions */
+  .pad{padding:64px 0}
+  .pad-sm{padding:40px 0}
+  .inner{padding:0 20px}
+
+  /* Font size reductions */
+  h2{font-size:26px}
+  h3{font-size:18px}
+  .pq{font-size:18px;padding:32px 20px}
+  .stat .big{font-size:40px}
+
+  /* Tier stairs: stack vertically with consistent sizing */
+  .stair{height:auto!important;border-radius:12px;padding:18px 16px;flex-direction:row;align-items:center;gap:14px;text-align:left;justify-content:flex-start}
+  .stair .s-ltr{font-size:26px;margin-bottom:0;flex-shrink:0}
+  .stair .s-nm{margin-bottom:2px;font-size:12px}
+  .stair .s-desc{font-size:11px}
+
+  /* Pipeline steps */
+  .p1,.p4{border-radius:12px}
+  .p2,.p3{border-radius:12px}
+  .pipe-step{min-width:auto;padding:22px 16px}
+
+  /* Barrier cards: stack vertically */
+  .barrier{flex-direction:column}
+  .barrier .b-left,.barrier .b-right{min-width:auto}
+
+  /* Support cards: stack */
+  .sup-visual{flex-direction:column;gap:12px}
+
+  /* Ask row: stack */
+  .ask-row{flex-direction:column;gap:14px}
+
+  /* Deliverables: 2 columns */
+  .del{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Small mobile: ≤ 600px */
+@media(max-width:600px){
+  .hero{min-height:50vh;padding:48px 16px}
+  .hero h1{font-size:clamp(22px,7vw,32px)}
+  .hero .hsub{font-size:14px}
+
+  .pad{padding:48px 0}
+  .pad-sm{padding:32px 0}
+  .inner{padding:0 16px}
+
+  h2{font-size:22px}
+  h3{font-size:16px}
+  .pq{font-size:16px;padding:28px 16px}
+  .stat .big{font-size:34px}
+
+  .icard{padding:22px 18px}
+  .icard .icon{font-size:26px}
+
+  /* Deliverables: single column */
+  .del{grid-template-columns:1fr}
+
+  /* Nav links: single column */
+  .nav-links a{width:100%;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+
+  /* Val grid: ensure single column */
+  .val-grid{grid-template-columns:1fr}
+
+  /* Timeline horizontal scroll */
+  .htl{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0;padding-bottom:8px;justify-content:flex-start}
+  .htl::before{display:none}
+  .htl-step{min-width:100px;flex-shrink:0}
+
+  /* Ask cards */
+  .ask-card{padding:20px}
+  .ask-card .ask-num{font-size:28px}
+
+  /* Support cards padding */
+  .sup-card{padding:20px 16px}
+}
+
+/* Extra small mobile: ≤ 400px */
+@media(max-width:400px){
+  .hero{padding:36px 12px}
+  .hero h1{font-size:clamp(20px,6vw,28px)}
+
+  .inner{padding:0 12px}
+  h2{font-size:20px}
+  .pq{font-size:15px;padding:24px 12px}
+  .stat .big{font-size:28px}
+
+  nav .br{font-size:11px;padding:10px 8px 10px 0}
+  .nav-toggle span{width:18px}
+
+  .icard{padding:18px 14px}
+  .stair{padding:14px 12px;gap:10px}
+  .stair .s-ltr{font-size:22px}
+}
 </style></head><body>
 
 <nav>
 <span class="br">OA Theory of Action</span>
+<button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links">
 <a href="#challenge">Challenge</a><a href="#data">Data</a><a href="#gap">Gap</a><a href="#solution">Solution</a>
 <a href="#tiers">Tiers</a><a href="#logic">Causal Logic</a><a href="#views">Views</a><a href="#barriers">Barriers</a>
 <a href="#support">Support</a><a href="#deliver">Deliver</a><a href="#process">Process</a><a href="#impact">Impact</a><a href="#ask">Ask</a><a href="#logicmodel">Logic Model</a>
+</div>
 </nav>
 
 <section class="bg-mblue hero">
