@@ -278,6 +278,45 @@ footer{text-align:center;padding:28px;font-size:11px;color:#52585A;opacity:.5;bo
 .stair-label .s-ltr{font-size:22px}
 .stair-label{min-width:90px;padding:0 0 0 8px}
 }
+/* ==========================================
+   ADOPTION FLOW GRID
+   ========================================== */
+.af-grid{display:grid;grid-template-columns:140px 1fr 1fr 1fr 1fr 140px;gap:4px;margin-top:28px}
+.af-hdr{background:#00539F;color:#fff;text-align:center;padding:10px 6px;border-radius:8px 8px 0 0;font-size:11px;font-weight:700;line-height:1.3}
+.af-hdr .af-icon{font-size:20px;display:block;margin-bottom:2px}
+.af-corner,.af-dest-hdr{background:#00539F;color:#fff;text-align:center;padding:10px 6px;border-radius:8px 8px 0 0;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.af-tier{border-radius:8px 0 0 8px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px;text-align:center;line-height:1.3}
+.af-tier .af-ltr{font-size:1.3rem;font-weight:900;margin-bottom:2px}
+.af-t-a{background:#4F87C6}
+.af-t-b{background:#3A6FA8}
+.af-t-c{background:#4FBC86}
+.af-t-d{background:linear-gradient(135deg,#C8A415,#F5E6A3);color:#5A4800}
+.af-t-e{background:#4D4F51}
+.af-cell{padding:10px;border-radius:6px;font-size:12px;line-height:1.5;position:relative}
+.af-cell.active{background:#fff;border:1.5px solid #D0DCE8;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.af-cell.active::after{content:'›';position:absolute;right:-9px;top:50%;transform:translateY(-50%);font-size:1.4rem;color:#4FBC86;font-weight:700;z-index:2}
+.af-cell.active.last-active::after{display:none}
+.af-cell.inactive{background:#f0f2f4;border:1.5px dashed #D0DCE8;display:flex;align-items:center;justify-content:center;color:#B0BEC5;font-style:italic;font-size:11px}
+.af-cell ul{list-style:none;padding:0;margin:0}
+.af-cell li{margin-bottom:4px;padding-left:14px;position:relative;font-size:11px;color:#52585A;line-height:1.5}
+.af-cell li::before{content:'▸';color:#4FBC86;position:absolute;left:0;font-weight:bold}
+.af-dest{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:8px;border-radius:0 8px 8px 0;background:#fafbfc;border:1.5px solid #D0DCE8}
+.af-badge{padding:6px 10px;border-radius:20px;font-size:10px;font-weight:700;text-align:center;width:100%;line-height:1.3}
+.af-badge.gold{background:linear-gradient(135deg,#F5E6A3,#C8A415);color:#5A4800}
+.af-badge.plat{background:linear-gradient(135deg,#CFD8DC,#8C9DAB);color:#2C3E50}
+.af-badge.champ{background:#333;color:#C8A415}
+.af-tl{width:100%;border-collapse:collapse;margin-top:28px;font-size:13px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.07)}
+.af-tl th{background:#00539F;color:#fff;padding:10px 16px;text-align:left;font-size:12px}
+.af-tl td{padding:10px 16px;border-bottom:1px solid #E8ECF0;font-size:13px}
+.af-tl tr:hover{background:#F8FAFE}
+.af-tl tr:last-child td{border-bottom:none}
+.af-how{background:#E8F0FE;border-left:4px solid #4FBC86;padding:14px 18px;border-radius:6px;margin-bottom:8px;font-size:13px;line-height:1.55;color:#333}
+@media(max-width:900px){
+  .af-grid{grid-template-columns:1fr}
+  .af-tier{border-radius:8px 8px 0 0}
+  .af-dest{border-radius:0 0 8px 8px}
+  .af-cell.active::after{display:none}
+}
 </style></head><body>
 
 <nav>
@@ -288,7 +327,7 @@ footer{text-align:center;padding:28px;font-size:11px;color:#52585A;opacity:.5;bo
 <div class="nav-links">
 <a href="#challenge">Challenge</a><a href="#data">Data</a><a href="#gap">Gap</a><a href="#solution">Solution</a>
 <a href="#tiers">Tiers</a><a href="#logic">Causal Logic</a><a href="#views">Views</a><a href="#barriers">Barriers</a>
-<a href="#support">Support</a><a href="#deliver">Deliver</a><a href="#process">Process</a><a href="#impact">Impact</a><a href="#ask">Ask</a><a href="#logicmodel">Logic Model</a>
+<a href="#support">Support</a><a href="#adoptionflow">Adoption Flow</a><a href="#deliver">Deliver</a><a href="#process">Process</a><a href="#impact">Impact</a><a href="#ask">Ask</a><a href="#logicmodel">Logic Model</a>
 </div>
 </nav>
 
@@ -511,6 +550,150 @@ LEADING TO: Enhanced Employment · Career Advancement · Economic Mobility · Fi
 </div>
 </div>
 </div></section>
+
+<!-- ============ ADOPTION FLOW SECTION ============ -->
+<section class="bg-b pad" id="adoptionflow"><div class="inner">
+<div class="eyebrow">Adoption Process Flow</div>
+<h2>How GII Supports Members — Phase by Phase</h2>
+<div class="tagline">Every organization follows the same phases — they just enter at different points. Find the current tier on the left and follow across.</div>
+<div class="af-how"><strong>How to read:</strong> Active cells (white) show what GII delivers at that phase. Inactive cells (gray) mean the organization has already passed that stage. Arrows connect the phases. All pathways lead to OA Gold, OA Platinum, or an ongoing OA Champion role.</div>
+
+<div class="af-grid">
+<!-- Header Row -->
+<div class="af-corner">Current OA<br>Adoption Tier</div>
+<div class="af-hdr"><span class="af-icon">📋</span>Phase 1<br>Gain understanding<br>&amp; buy-in</div>
+<div class="af-hdr"><span class="af-icon">🎯</span>Phase 2<br>Develop urgency &amp;<br>spark motivation</div>
+<div class="af-hdr"><span class="af-icon">🔍</span>Phase 3<br>Discovery &amp;<br>action planning</div>
+<div class="af-hdr"><span class="af-icon">✅</span>Phase 4<br>Implementation<br>&amp; evaluation</div>
+<div class="af-dest-hdr">Desired Future<br>OA Tier</div>
+
+<!-- ROW A: Prospective (Non-Adopter) -->
+<div class="af-tier af-t-a"><span class="af-ltr">A</span>Prospective<br>(Non-Adopter)</div>
+<div class="af-cell active"><ul>
+<li>Invite to webinars, listening sessions, and OA learning events</li>
+<li>Hold brief introductory calls to understand barriers, demystify OA, and gauge readiness</li>
+<li>Extend invitations to OA Fellows to spark early interest</li>
+<li>Engage CEOs and mission leaders</li>
+</ul></div>
+<div class="af-cell active"><ul>
+<li>Deliver an introductory consultation (what OA is, why it matters, and how to get started)</li>
+<li>Determine the level of future 1:1 support needed</li>
+<li>Invite to discovery opportunities (e.g., OA Fellows)</li>
+</ul></div>
+<div class="af-cell active"><ul>
+<li>Provide a structured 2-month advisory consultation focused on closing key gaps (readiness assessment)</li>
+<li>Develop an OA Action Plan with clear next steps and follow-up cadence to ensure accountability for adoption</li>
+</ul></div>
+<div class="af-cell active last-active"><ul>
+<li>Execute OA Action Plan</li>
+<li>Utilize Fidelity Monitoring tool to validate OA Gold / OA Platinum</li>
+<li>Encourage expansion of OA practices across all programs</li>
+<li>Identify targeted support to close gaps</li>
+</ul></div>
+<div class="af-dest">
+<span class="af-badge gold">OA Gold ★</span>
+<span class="af-badge plat">OA Platinum ★★</span>
+</div>
+
+<!-- ROW B: Exploring -->
+<div class="af-tier af-t-b"><span class="af-ltr">B</span>Exploring</div>
+<div class="af-cell inactive">Already past this phase</div>
+<div class="af-cell active"><ul>
+<li>Deliver an introductory consultation (what OA is, why it matters, and how to get started)</li>
+<li>Determine the level of future 1:1 support needed</li>
+<li>Invite to discovery opportunities (e.g., OA Fellows)</li>
+</ul></div>
+<div class="af-cell active"><ul>
+<li>Provide a structured 2-month advisory consultation focused on closing key gaps (readiness assessment)</li>
+<li>Develop an OA Action Plan with clear next steps and follow-up cadence to ensure accountability for adoption</li>
+</ul></div>
+<div class="af-cell active last-active"><ul>
+<li>Execute OA Action Plan</li>
+<li>Utilize Fidelity Monitoring tool to validate OA Gold / OA Platinum</li>
+<li>Encourage expansion of OA practices across all programs</li>
+<li>Identify targeted support to close gaps</li>
+</ul></div>
+<div class="af-dest">
+<span class="af-badge gold">OA Gold ★</span>
+<span class="af-badge plat">OA Platinum ★★</span>
+</div>
+
+<!-- ROW C: Progressing (Partial Adopter) -->
+<div class="af-tier af-t-c"><span class="af-ltr">C</span>Progressing<br>(Partial Adopter)</div>
+<div class="af-cell inactive">Already past this phase</div>
+<div class="af-cell active"><ul>
+<li>Deliver an introductory consultation (what OA is, why it matters, and how to get started)</li>
+<li>Determine the level of future 1:1 support needed</li>
+<li>Invite to discovery opportunities (e.g., OA Fellows)</li>
+</ul></div>
+<div class="af-cell active"><ul>
+<li>Provide a structured 2-month advisory consultation focused on closing key gaps (readiness assessment)</li>
+<li>Develop an OA Action Plan with clear next steps and follow-up cadence to ensure accountability for adoption</li>
+<li>Offer self-learning path or shorter consultation option based on organizational readiness</li>
+</ul></div>
+<div class="af-cell active last-active"><ul>
+<li>Execute OA Action Plan</li>
+<li>Utilize Fidelity Monitoring tool to validate OA Gold / OA Platinum</li>
+<li>Encourage expansion of OA practices across all programs</li>
+<li>Identify targeted support to close gaps</li>
+</ul></div>
+<div class="af-dest">
+<span class="af-badge gold">OA Gold ★</span>
+<span class="af-badge plat">OA Platinum ★★</span>
+</div>
+
+<!-- ROW D: Ready (Gold ★) -->
+<div class="af-tier af-t-d"><span class="af-ltr">D</span>Ready<br>(Gold ★)</div>
+<div class="af-cell inactive">Already past this phase</div>
+<div class="af-cell inactive">Already past this phase</div>
+<div class="af-cell active"><ul>
+<li>Utilize Fidelity Monitoring tool to validate OA Gold</li>
+<li>Encourage expansion of OA practices across all programs (if adoption is limited today)</li>
+<li>Assess interest and commitment to pursue OA Platinum</li>
+<li>Identify targeted support to close remaining gaps</li>
+</ul></div>
+<div class="af-cell active last-active"><ul>
+<li>Execute action plan for Platinum readiness</li>
+<li>Begin transition to Individualized Consultation for Platinum-level support</li>
+<li>Engage as peer mentor or speaker for earlier-tier organizations</li>
+</ul></div>
+<div class="af-dest">
+<span class="af-badge plat">OA Platinum ★★</span>
+</div>
+
+<!-- ROW E: Exemplary (Platinum ★★) -->
+<div class="af-tier af-t-e"><span class="af-ltr">E</span>Exemplary<br>(Platinum ★★)</div>
+<div class="af-cell inactive">Already past this phase</div>
+<div class="af-cell inactive">Already past this phase</div>
+<div class="af-cell inactive">Already past this phase</div>
+<div class="af-cell active last-active"><ul>
+<li>Validate OA Platinum fidelity across all programs</li>
+<li>Encourage enterprise-wide expansion if not yet fully scaled</li>
+<li>Engage as OA champions and mentors (speakers for webinars, learning events, and Fellows sessions)</li>
+<li>Contribute to network-wide peer learning and continuous improvement</li>
+</ul></div>
+<div class="af-dest">
+<span class="af-badge champ">OA Champion<br>(Network Leader)</span>
+</div>
+</div>
+
+<!-- TIMELINE TABLE -->
+<h3 style="margin-top:36px">⏱ Estimated Timelines by Starting Tier</h3>
+<table class="af-tl">
+<tr><th>Pathway</th><th>Estimated Timeline</th></tr>
+<tr><td>Non-Adopter → OA Gold</td><td>6 – 12 months</td></tr>
+<tr><td>Non-Adopter → OA Platinum</td><td>6 – 18 months</td></tr>
+<tr><td>Exploring → OA Gold</td><td>3 – 6 months</td></tr>
+<tr><td>Exploring → OA Platinum</td><td>3 – 9 months</td></tr>
+<tr><td>Partial Adopter → OA Gold</td><td>3 – 4 months</td></tr>
+<tr><td>Partial Adopter → OA Platinum</td><td>3 – 5 months</td></tr>
+<tr><td>Gold → OA Platinum</td><td>1 – 6 months</td></tr>
+<tr><td>Platinum → OA Champion</td><td><em>Ongoing</em></td></tr>
+</table>
+
+<p style="font-size:12px;color:#52585A;opacity:.6;margin-top:14px;text-align:center">All pathways lead to full OA adoption. Gold and Platinum members play a critical role as champions, mentors, and proof points for the network.</p>
+</div></section>
+<!-- ============ END ADOPTION FLOW SECTION ============ -->
 
 <section class="bg-b pad-sm" id="deliver"><div class="inner">
 <div class="eyebrow">Deliverables</div>
