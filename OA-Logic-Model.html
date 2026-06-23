@@ -37,7 +37,7 @@ header .meta{display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;opacity:.68;b
 .sub-head.spaced{margin-top:12px;padding-top:8px;border-top:1px dashed rgba(79,135,198,.18)}
 .col-items{list-style:none;padding:0}
 .col-items li{font-size:12.5px;line-height:1.55;padding:4px 0 4px 14px;position:relative;color:#52585A}
-.col-items li::before{content:"•";position:absolute;left:0;color:#4FBC86;font-weight:700}
+.col-items li::before{content:"\2022";position:absolute;left:0;color:#4FBC86;font-weight:700}
 .blue-top .col-items li::before{color:#4F87C6}
 .bridge{background:linear-gradient(135deg,#4D4F51,#3A3C3E);color:#fff;border-radius:10px;padding:18px 28px;margin:8px 0 20px;text-align:center;font-size:15px;font-weight:700;letter-spacing:.01em;box-shadow:0 2px 12px rgba(0,0,0,.08)}
 .bridge .arrow{font-size:20px;margin:0 8px;vertical-align:middle;color:#4FBC86}
@@ -50,7 +50,7 @@ header .meta{display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;opacity:.68;b
 .impact-bar h3{font-size:16px;font-weight:900;margin-bottom:8px;letter-spacing:.01em}
 .impact-bar .impact-items{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;font-size:13px;font-weight:400;opacity:.95}
 .impact-bar .impact-items span{display:flex;align-items:center;gap:4px;max-width:280px}
-.impact-bar .impact-items span::before{content:"★";font-size:10px;color:rgba(255,255,255,.6);flex-shrink:0}
+.impact-bar .impact-items span::before{content:"\2605";font-size:10px;color:rgba(255,255,255,.6);flex-shrink:0}
 .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
 .bottom-box{border-radius:12px;padding:20px 22px;font-size:13px;line-height:1.65;letter-spacing:.02em}
 .bb-assumptions{background:rgba(79,188,134,.06);border-left:5px solid #4FBC86}
@@ -72,6 +72,7 @@ footer{text-align:center;font-size:11px;color:#52585A;opacity:.5;border-top:1px 
 </head>
 <body>
 <div class="page">
+
 <header>
   <h1>Goodwill Opportunity Accelerator&reg; (OA) &mdash; Logic Model <span class="draft-badge">DRAFT</span></h1>
   <div class="sub">Level 2 (Local) is the primary, long-term logic model. Level 1 (Network) shows the enabling work GII does to support local implementation.</div>
@@ -80,12 +81,15 @@ footer{text-align:center;font-size:11px;color:#52585A;opacity:.5;border-top:1px 
     <span>Goodwill Industries International</span>
   </div>
 </header>
+
 <div class="how-to">
   <strong>How to read this page:</strong> This logic model shows how the Opportunity Accelerator works at <strong>two connected levels</strong>. <strong>Level 2 (Local)</strong> is the <em>primary, long-term logic model</em> that describes how member organizations serve participants and is the model intended for external sharing (e.g., funders, partners). <strong>Level 1 (Network)</strong> is the <em>enablement layer</em> &mdash; it shows the supporting work GII does to build organizational capacity across the Goodwill network. In Level 1, outcomes are organized as <strong>short-, medium-, and long-term</strong> to reflect how GII&rsquo;s support drives progressive change across the Goodwill network. Read each level left to right: Inputs &rarr; Activities &rarr; Outputs &rarr; Outcomes.
 </div>
+
 <div class="acronym-key">
   <strong>Acronym Key:</strong> <strong>GII</strong> = Goodwill Industries International &middot; <strong>OA</strong> = Opportunity Accelerator &middot; <strong>CN</strong> = Career Navigator &middot; <strong>TA</strong> = Technical Assistance &middot; <strong>ToA</strong> = Theory of Action &middot; <strong>ART</strong> = Accountability Reporting Tool &middot; <strong>MOL&Eacute;</strong> = Mission Optimization Learning Event &middot; <strong>ICFP</strong> = Individualized Career and Financial Plan &middot; <strong>P/C/I</strong> = Primary / Contributing / Informed (role framework)
 </div>
+
 <div class="level-bar lb-green">🌐 Level 1: Network (GII) &mdash; Enablement Layer <span class="level-sub">What GII does to build organizational capacity</span></div>
 <div class="logic-grid">
   <div class="logic-col green-top">
@@ -129,21 +133,18 @@ footer{text-align:center;font-size:11px;color:#52585A;opacity:.5;border-top:1px 
   </div>
   <div class="logic-col green-top">
     <div class="col-head ch-green">Outcomes</div>
-
     <div class="sub-head sh-green">Short-Term Outcomes</div>
     <ul class="col-items">
       <li>% organizations demonstrating increased understanding of OA core components following GII support</li>
       <li>% organizations beginning to adopt standardized OA processes across service areas</li>
       <li>% organizations actively using OA tools and resources provided</li>
     </ul>
-
     <div class="sub-head sh-green spaced">Medium-Term Outcomes</div>
     <ul class="col-items">
       <li>% organizations implementing OA core functions consistently across service delivery areas</li>
       <li>% organizations demonstrating alignment with standardized program design and delivery</li>
       <li>% organizations using data to guide program improvement and decision-making</li>
     </ul>
-
     <div class="sub-head sh-green spaced">Long-Term Outcomes</div>
     <ul class="col-items">
       <li>% organizations sustaining OA implementation over time</li>
@@ -152,9 +153,11 @@ footer{text-align:center;font-size:11px;color:#52585A;opacity:.5;border-top:1px 
     </ul>
   </div>
 </div>
+
 <div class="bridge">
   GII&rsquo;s network-level work produces organizations that are <strong>clear, consistent, and equipped</strong> <span class="arrow">▶</span> which enables <strong>strong local implementation in Level 2</strong>
 </div>
+
 <div class="level-bar lb-blue">🏢 Level 2: Local (Member Organizations) &mdash; Primary Logic Model <span class="level-sub">What organizations do on the ground to serve participants</span></div>
 <div class="logic-grid">
   <div class="logic-col blue-top">
@@ -221,6 +224,7 @@ footer{text-align:center;font-size:11px;color:#52585A;opacity:.5;border-top:1px 
     </ul>
   </div>
 </div>
+
 <div class="key-defs">
   <h3>📖 Key Definitions</h3>
   <ul>
@@ -229,16 +233,50 @@ footer{text-align:center;font-size:11px;color:#52585A;opacity:.5;border-top:1px 
     <li><strong>Quality employment:</strong> employment meeting defined criteria including a living wage, access to benefits (e.g., health insurance, paid leave), and career advancement potential.</li>
     <li><strong>Engaged as alumni:</strong> participation in at least one alumni touchpoint (event, mentorship, survey, or service) within 12 months of program exit.</li>
   </ul>
-<div class="bottom-box bb-assumptions">
-  <h3>📋 Assumptions (Testable)</h3>
-  <ol>
-    <li>Organizations progressing through the five maturity stages will demonstrate measurable differences in OA practice fidelity scores.</li>
-    <li>Organizations with clearly defined role assignments (P/C/I framework) will demonstrate higher OA fidelity scores than those without.</li>
-    <li>Mission Leaders presented with a clear structural roadmap will invest in organizational preparation activities at higher rates than those without one.</li>
-    <li>Organizations exposed to a structured progressive roadmap will advance through OA stages more quickly than those without.</li>
-    <li>Organizations with access to sufficient funding, staffing, and infrastructure will progress through OA stages at higher rates.</li>
-    <li>GII's differentiated TA model will produce measurable improvements in OA implementation across organizations at different maturity stages.</li>
-    <li>Participants who engage with the full continuum of OA services will demonstrate stronger employment, retention, and advancement outcomes than those who engage partially.</li>
-    <li>Stakeholders engaged in validation activities (e.g., feedback sessions, advisory councils, MDRC partnership) will produce more reliable and usable framework refinements than those developed without stakeholder input.</li>
-  </ol>
 </div>
+
+<div class="impact-bar">
+  <h3>★ Long-Term Impact</h3>
+  <div class="impact-items">
+    <span>Enhanced employment outcomes</span>
+    <span>Career advancement &amp; economic mobility</span>
+    <span>Financial stability</span>
+    <span>Strengthened member organizational capacity (expanded offerings, deepened service intensity, stronger local partnerships)</span>
+    <span>Network cohesion</span>
+    <span>Contribution to community economic strength (indirect, system-level)</span>
+  </div>
+</div>
+
+<div class="bottom-grid">
+  <div class="bottom-box bb-assumptions">
+    <h3>📋 Assumptions (Testable)</h3>
+    <ol>
+      <li>Organizations progressing through the five maturity stages will demonstrate measurable differences in OA practice fidelity scores.</li>
+      <li>Organizations with clearly defined role assignments (P/C/I framework) will demonstrate higher OA fidelity scores than those without.</li>
+      <li>Mission Leaders presented with a clear structural roadmap will invest in organizational preparation activities at higher rates than those without one.</li>
+      <li>Organizations exposed to a structured progressive roadmap will advance through OA stages more quickly than those without.</li>
+      <li>Organizations with access to sufficient funding, staffing, and infrastructure will progress through OA stages at higher rates.</li>
+      <li>GII&rsquo;s differentiated TA model will produce measurable improvements in OA implementation across organizations at different maturity stages.</li>
+      <li>Participants who engage with the full continuum of OA services will demonstrate stronger employment, retention, and advancement outcomes than those who engage partially.</li>
+      <li>Stakeholders engaged in validation activities (e.g., feedback sessions, advisory councils, MDRC partnership) will produce more reliable and usable framework refinements than those developed without stakeholder input.</li>
+    </ol>
+  </div>
+  <div class="bottom-box bb-external">
+    <h3>⚠️ External Factors</h3>
+    <ul>
+      <li>Labor market conditions (regional variation)</li>
+      <li>Funding environment (federal, state, private)</li>
+      <li>Policy &amp; regulatory landscape</li>
+      <li>Community demographics &amp; population needs</li>
+      <li>Economic conditions (recession, inflation, housing)</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  DRAFT &mdash; For Internal Discussion &middot; June 2026 &middot; Goodwill Industries International
+</footer>
+
+</div>
+</body>
+</html>
